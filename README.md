@@ -207,13 +207,13 @@ A student can enroll in multiple courses in a semester
 
 11. Tools and Technologies
 
-Database: MySQL / Oracle / PostgreSQL
+Database: MySQL 
 
 Query Language: SQL
 
-Frontend (Later Labs): HTML, CSS, PHP / Python / Java
+Frontend (Later Labs): HTML, CSS, Javascript
 
-Operating System: Windows / Linux
+Operating System: Windows
 
 12. Lab-wise Implementation Plan
 Lab No.	Description
