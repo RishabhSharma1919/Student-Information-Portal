@@ -1,0 +1,104 @@
+                          STUDENT INFORMATION TABLE
+ Basic information:
+ The Student Information System (SIS) is a database-oriented application designed to efficiently manage and maintain student-related information in an educational institution. The system provides a centralized platform for storing, updating, and retrieving student records, academic details, course enrollments, and faculty information.
+
+This project is developed as part of the Database Management Systems Laboratory to practically implement theoretical DBMS concepts such as requirement analysis, Entity-Relationship (ER) modeling, relational mapping, normalization, SQL queries, stored procedures, and user interface development.
+
+Details Required for database
+
+Academic Details
+
+Roll Number – Unique identification number of the student
+
+Registration Number – Official university registration ID
+
+Branch / Department –  CSE, ECE, ME etc.
+
+Program – B.Tech / M.Tech / MBA etc.
+
+Year / Semester – Current academic year or semester
+
+Section – Class section (if applicable)
+
+
+Personal Details
+
+Full Name – Student’s complete name
+
+contact information - email id , phone number etc;
+
+Date of Birth – In DD-MM-YYYY format
+
+Gender – Male / Female / Other
+
+Category – General / OBC / SC / ST (optional, institute-based)
+
+Address - complete address of student
+
+Course Identification
+
+Course ID – Unique course code (e.g. CS201)
+
+Course Name – Full name of the course
+
+Course Type – Core / Elective / Open Elective
+
+Department – Offering department (CSE, ECE, etc.)
+
+course credits-
+
+Faculty Data
+
+Faculty ID
+
+Name
+
+Department
+
+designation
+
+Result Data
+
+Result ID
+
+Enrollment ID
+
+Marks
+
+Grade
+
+Functional Requirements
+
+The system shall be able to:
+
+Add new student records
+
+Update existing student records
+
+Delete student records
+
+Store and manage course information
+
+Store and manage faculty information
+
+Enroll students into courses
+
+Maintain enrollment records semester-wise
+
+Store and update student marks and grades
+
+Retrieve student, course, and faculty details using SQL queries
+
+Generate basic academic reports (student-wise, course-wise)
+
+ Non-Functional Requirements
+
+The system shall ensure data consistency and integrity
+
+The system shall minimize data redundancy
+
+The system shall support secure and controlled access
+
+The system shall provide efficient query performance
+
+The system shall be scalable for future expansion
