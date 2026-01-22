@@ -82,7 +82,7 @@ Faculty Members
 
 Access student details and update marks
 
-Students (optional)
+Students
 
 View academic information
 
