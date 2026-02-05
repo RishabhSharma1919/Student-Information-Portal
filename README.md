@@ -1,124 +1,124 @@
-📘 Student Information System (SIS)
-Database Management Systems Laboratory Project
-1. Project Overview
+📘 Student Information System (SIS) – DBMS Laboratory Project
+Project Overview
 
-The Student Information System (SIS) is a database-oriented application designed to efficiently manage and maintain student-related information in an educational institution. The system provides a centralized platform for storing, updating, and retrieving student records, academic details, course enrollments, and faculty information.
+The Student Information System (SIS) is a database-driven application developed to manage and organize academic information within an educational institution. The system efficiently handles student personal details, course information, faculty data, enrollment records, and academic results.
 
-This project is developed as part of the Database Management Systems Laboratory to practically implement theoretical DBMS concepts such as requirement analysis, Entity-Relationship (ER) modeling, relational mapping, normalization, SQL queries, stored procedures, and user interface development.
+This project is implemented as part of the Database Management Systems Laboratory to practically apply DBMS concepts including requirement analysis, Entity-Relationship (ER) modeling, relational schema design, normalization, SQL implementation, stored procedures, and basic user interface development.
 
-2. Motivation
+Motivation
 
-In many institutions, student data is still managed using manual registers or unstructured digital files such as spreadsheets. These traditional methods suffer from several limitations:
+Traditional methods of managing student data using manual registers or unstructured digital files often result in:
 
-High data redundancy
+Data redundancy
 
-Inconsistency across records
+Data inconsistency
 
-Difficulty in maintaining large datasets
+Difficulty in record maintenance
 
-Slow retrieval of information
+Slow information retrieval
 
 Poor data security
 
-The Student Information System aims to overcome these limitations by using a well-designed relational database, ensuring data integrity, consistency, and scalability.
+The Student Information System addresses these issues by utilizing a structured relational database design based on an ER model, ensuring data integrity, accuracy, and scalability.
 
-3. Problem Statement
+Problem Statement
 
-The manual management of student records leads to inefficiencies in data storage, retrieval, and maintenance. Handling student personal details, course registrations, faculty assignments, and academic performance becomes complex and error-prone as the number of students increases.
+Managing student information manually becomes inefficient as the number of students and courses increases. Tracking personal details, enrollments, faculty assignments, and academic results becomes complex and prone to errors.
 
-Hence, there is a need for a structured database system that can:
+Therefore, a centralized and well-structured database system is required to:
 
-Store student information in an organized manner
+Store academic data systematically
 
-Reduce redundancy and anomalies
+Reduce redundancy and update anomalies
 
-Allow easy retrieval and modification of records
+Enable fast data retrieval and modification
 
-Maintain data accuracy and integrity
+Maintain consistency and integrity of records
 
-4. Objectives of the Project
+Objectives of the Project
 
-The main objectives of the Student Information System are:
+The key objectives of the Student Information System are:
 
-To analyze and gather system requirements
+To analyze system requirements
 
 To identify entities, attributes, and relationships
 
-To design an Entity-Relationship diagram
+To design the Entity-Relationship (ER) Diagram
 
-To convert ER models into relational tables
+To convert ER design into relational tables
 
 To apply normalization techniques
 
 To implement SQL queries and stored procedures
 
-To design a basic user interface for database interaction
+To develop a basic user interface for interaction
 
-5. Scope of the Project
+Scope of the Project
 
-The scope of this project is limited to academic data management within an educational institution. The system focuses on:
+The system focuses on academic data management, including:
 
 Student personal and academic details
 
-Course and subject information
+Course information
 
-Faculty details
+Faculty information
 
-Student enrollment records
+Student enrollment in courses
 
-Student marks and results
+Academic results
 
-Advanced features such as online attendance, fee payment, or authentication systems are beyond the scope of this project.
+Advanced modules such as attendance systems, fee management, and authentication are not included in this project.
 
-6. Stakeholders
-
-The primary stakeholders of the system include:
-
+Stakeholders
 Administrator
 
-Manages student, course, and faculty records
+Manages student, course, faculty, and enrollment records
 
 Faculty Members
 
-Access student details and update marks
+Access student enrollments
+
+Update student marks and grades
 
 Students
 
-View academic information
+View personal academic information and results
 
-7. Requirement Analysis
+Requirement Analysis
 7.1 Functional Requirements
 
-The system should be able to:
+The system should allow users to:
 
 Add, update, and delete student records
 
-Store course and faculty information
+Store and manage course details
 
-Enroll students into courses
+Maintain faculty information
 
-Maintain student academic performance
+Enroll students into courses each semester
 
-Retrieve student information using SQL queries
+Store academic results for each enrollment
 
-Generate basic academic reports
+Retrieve data using SQL queries
+
+Generate academic reports
 
 7.2 Non-Functional Requirements
 
-Data consistency and integrity
+High data consistency and integrity
 
-Reduced data redundancy
+Minimal data redundancy
 
-Secure and controlled access
+Secure data handling
 
-Efficient query performance
+Efficient query processing
 
-Scalability for future expansion
+Scalability for future enhancements
 
-8. Data Requirements
+Data Requirements
 8.1 Student Data
 
-Student ID
+Student ID (Primary Key)
 
 Name
 
@@ -134,7 +134,7 @@ Contact Details
 
 8.2 Course Data
 
-Course ID
+Course ID (Primary Key)
 
 Course Name
 
@@ -144,7 +144,7 @@ Department
 
 8.3 Faculty Data
 
-Faculty ID
+Faculty ID (Primary Key)
 
 Name
 
@@ -154,26 +154,27 @@ Designation
 
 8.4 Enrollment Data
 
-Enrollment ID
+(Bridge entity between Student and Course)
 
-Student ID
+Enrollment ID (Primary Key)
 
-Course ID
+Student ID (Foreign Key)
+
+Course ID (Foreign Key)
 
 Semester
 
 8.5 Result Data
 
-Result ID
+Result ID (Primary Key)
 
-Enrollment ID
+Enrollment ID (Foreign Key)
 
 Marks
 
 Grade
 
-9. Identified Entities and Relationships
-Entities:
+Identified Entities
 
 Student
 
@@ -185,45 +186,53 @@ Enrollment
 
 Result
 
-Relationships:
+Identified Relationships
 
 A student can enroll in multiple courses
 
-A course can have multiple students
+A course can have multiple students enrolled
 
-A faculty member can teach multiple courses
+The many-to-many relationship between Student and Course is resolved using the Enrollment entity
 
-Each enrollment has one result
+A faculty member can teach multiple courses (1:N relationship)
 
-10. Assumptions
+Each enrollment record is associated with exactly one result (1:1 relationship)
 
-Each student has a unique Student ID
+Assumptions
+
+Each student is uniquely identified by Student ID
 
 Each course has a unique Course ID
 
-One faculty member teaches a course per semester
+Each faculty member has a unique Faculty ID
 
-A student can enroll in multiple courses in a semester
+One faculty member teaches a course in a given semester
 
-11. Tools and Technologies
+A student may enroll in multiple courses in a semester
 
-Database: MySQL 
+Each enrollment produces one academic result
+
+Tools and Technologies
+
+Database: MySQL
 
 Query Language: SQL
 
-Frontend (Later Labs): HTML, CSS, Javascript
+Frontend (Future Implementation): HTML, CSS, JavaScript
 
 Operating System: Windows
 
-12. Lab-wise Implementation Plan
+Lab-wise Implementation Plan
 Lab No.	Description
 Lab 1	Requirement Gathering
-Lab 2	ER Diagram
+Lab 2	ER Diagram Design
 Lab 3	ER to Relational Mapping
 Lab 4	Normalization
 Lab 5	Stored Procedures
 Lab 6	SQL Queries
 Lab 7	User Interface
-13. Conclusion
+Conclusion
 
-The requirement analysis of the Student Information System provides a strong foundation for database design and implementation. A clear understanding of entities, relationships, and data requirements ensures the development of a robust and efficient database system. Subsequent laboratory experiments will build upon this analysis to implement a complete DBMS-based application.
+The Student Information System is designed using a structured Entity-Relationship model that accurately represents academic processes such as student enrollment, course management, faculty assignment, and result storage. The use of a bridge entity (Enrollment) efficiently resolves the many-to-many relationship between students and courses, while the Result entity ensures accurate academic performance tracking.
+
+This well-organized database design minimizes redundancy, maintains data integrity, and provides a scalable foundation for future enhancements. The project serves as a practical application of core DBMS concepts learned in the laboratory.
