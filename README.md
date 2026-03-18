@@ -1,238 +1,309 @@
-📘 Student Information System (SIS) – DBMS Laboratory Project
-Project Overview
+# 🎓 Student Information Portal
+### A Full-Stack MERN + MySQL Project
+
+---
+
+## 📋 What This Project Does
+
+This is a **Student Information Portal** with three different user views:
+
+| Role | What They Can Do |
+|------|-----------------|
+| 🔴 **Admin** | Full access — manage students, faculty, courses, enrollments, results, and user accounts |
+| 🔵 **Teacher (Faculty)** | View assigned courses, see enrolled students, update student marks and grades |
+| 🟢 **Student** | View their own profile, courses they are enrolled in, and their results/CGPA |
+
+---
+
+## 🗂️ Project Structure
+
+```
+student-portal/
+├── backend/           ← Node.js + Express + MySQL API
+│   ├── config/
+│   │   └── db.js               ← MySQL connection
+│   ├── controllers/
+│   │   ├── authController.js   ← Login, change password
+│   │   ├── adminController.js  ← All admin operations
+│   │   ├── studentController.js← Student data
+│   │   └── facultyController.js← Faculty/teacher data
+│   ├── middleware/
+│   │   └── auth.js             ← JWT token verification
+│   ├── routes/
+│   │   ├── auth.js
+│   │   ├── admin.js
+│   │   ├── student.js
+│   │   └── faculty.js
+│   ├── schema.sql              ← ⭐ Run this in MySQL first!
+│   ├── server.js               ← Main backend entry point
+│   ├── .env.example            ← Copy to .env and fill in details
+│   └── package.json
+│
+└── frontend/          ← React.js UI
+    ├── src/
+    │   ├── context/
+    │   │   └── AuthContext.js  ← Global login state
+    │   ├── utils/
+    │   │   └── api.js          ← Axios HTTP client
+    │   ├── components/
+    │   │   └── Sidebar.js
+    │   ├── pages/
+    │   │   ├── Login.js
+    │   │   ├── admin/          ← Admin views
+    │   │   ├── student/        ← Student views
+    │   │   └── teacher/        ← Teacher views
+    │   ├── App.js
+    │   ├── index.js
+    │   └── index.css
+    └── package.json
+```
+
+---
+
+## ⚙️ Prerequisites — Install These First
+
+Before starting, you need these installed on your computer:
+
+### 1. Node.js (Required for both frontend and backend)
+- Go to: https://nodejs.org
+- Download and install the **LTS version** (the green button)
+- To verify: open a terminal/command prompt and type: `node --version`
+
+### 2. MySQL (The database)
+- **Windows**: Download MySQL Installer from https://dev.mysql.com/downloads/installer/
+  - During install, choose "Developer Default"
+  - Set a **root password** — remember this! You'll need it later.
+- **Mac**: Install via Homebrew: `brew install mysql`
+- **To verify**: Open MySQL Workbench or type `mysql -u root -p` in terminal
+
+### 3. MySQL Workbench (Optional but recommended — visual tool for MySQL)
+- Download from: https://dev.mysql.com/downloads/workbench/
+
+---
+
+## 🚀 Step-by-Step Setup
+
+### STEP 1: Set Up the Database
+
+1. Open **MySQL Workbench** (or your terminal)
+2. Connect to MySQL with your root credentials
+3. Open the file `backend/schema.sql` from this project
+4. Run the entire file — it will:
+   - Create a database called `student_portal`
+   - Create all the tables (students, faculty, courses, etc.)
+   - Insert sample data (10 students, 6 faculty, 10 courses)
+
+**Using terminal instead:**
+```bash
+mysql -u root -p < backend/schema.sql
+```
+(It will ask for your MySQL password)
+
+---
 
-The Student Information System (SIS) is a database-driven application developed to manage and organize academic information within an educational institution. The system efficiently handles student personal details, course information, faculty data, enrollment records, and academic results.
+### STEP 2: Configure the Backend
 
-This project is implemented as part of the Database Management Systems Laboratory to practically apply DBMS concepts including requirement analysis, Entity-Relationship (ER) modeling, relational schema design, normalization, SQL implementation, stored procedures, and basic user interface development.
+1. Go into the `backend` folder
+2. Copy `.env.example` and rename the copy to `.env`
+3. Open `.env` and fill in your details:
 
-Motivation
+```env
+DB_HOST=localhost
+DB_PORT=3306
+DB_USER=root
+DB_PASSWORD=your_mysql_root_password_here   ← CHANGE THIS
+DB_NAME=student_portal
+JWT_SECRET=any_long_random_string_here      ← CHANGE THIS (e.g. mySecretKey123456789)
+PORT=5000
+FRONTEND_URL=http://localhost:3000
+```
 
-Traditional methods of managing student data using manual registers or unstructured digital files often result in:
+---
 
-Data redundancy
+### STEP 3: Install and Start the Backend
 
-Data inconsistency
+Open a **terminal / command prompt** and run these commands:
 
-Difficulty in record maintenance
+```bash
+# Go into the backend folder
+cd backend
 
-Slow information retrieval
+# Install all required packages
+npm install
 
-Poor data security
+# Start the backend server
+npm run dev
+```
 
-The Student Information System addresses these issues by utilizing a structured relational database design based on an ER model, ensuring data integrity, accuracy, and scalability.
+You should see:
+```
+✅ MySQL Connected Successfully!
+🚀 Student Portal Backend running on http://localhost:5000
+```
+
+**Leave this terminal window open!**
+
+---
+
+### STEP 4: Install and Start the Frontend
+
+Open a **second terminal window** (keep the first one running) and run:
+
+```bash
+# Go into the frontend folder
+cd frontend
+
+# Install all required packages
+npm install
+
+# Start the React app
+npm start
+```
+
+Your browser should automatically open to `http://localhost:3000`
+
+---
+
+## 🌐 Accessing the Portal
+
+Once both are running, open your browser and go to:
+
+```
+http://localhost:3000
+```
+
+You will see the **Login Page** with demo accounts to click on.
+
+### The Three URLs
+| URL | For |
+|-----|-----|
+| `http://localhost:3000/login` | Login page (all users start here) |
+| `http://localhost:3000/admin` | Admin dashboard (auto-redirected after login) |
+| `http://localhost:3000/student` | Student dashboard |
+| `http://localhost:3000/teacher` | Teacher dashboard |
 
-Problem Statement
+---
 
-Managing student information manually becomes inefficient as the number of students and courses increases. Tracking personal details, enrollments, faculty assignments, and academic results becomes complex and prone to errors.
+## 👥 Demo Login Accounts
 
-Therefore, a centralized and well-structured database system is required to:
-
-Store academic data systematically
-
-Reduce redundancy and update anomalies
-
-Enable fast data retrieval and modification
-
-Maintain consistency and integrity of records
-
-Objectives of the Project
-
-The key objectives of the Student Information System are:
-
-To analyze system requirements
-
-To identify entities, attributes, and relationships
-
-To design the Entity-Relationship (ER) Diagram
-
-To convert ER design into relational tables
-
-To apply normalization techniques
-
-To implement SQL queries and stored procedures
-
-To develop a basic user interface for interaction
-
-Scope of the Project
-
-The system focuses on academic data management, including:
-
-Student personal and academic details
-
-Course information
-
-Faculty information
-
-Student enrollment in courses
-
-Academic results
-
-Advanced modules such as attendance systems, fee management, and authentication are not included in this project.
-
-Stakeholders
-Administrator
-
-Manages student, course, faculty, and enrollment records
-
-Faculty Members
-
-Access student enrollments
-
-Update student marks and grades
-
-Students
-
-View personal academic information and results
-
-Requirement Analysis
-7.1 Functional Requirements
-
-The system should allow users to:
-
-Add, update, and delete student records
-
-Store and manage course details
-
-Maintain faculty information
-
-Enroll students into courses each semester
-
-Store academic results for each enrollment
-
-Retrieve data using SQL queries
-
-Generate academic reports
-
-7.2 Non-Functional Requirements
-
-High data consistency and integrity
-
-Minimal data redundancy
-
-Secure data handling
-
-Efficient query processing
-
-Scalability for future enhancements
-
-Data Requirements
-8.1 Student Data
-
-Student ID (Primary Key)
-
-Name
-
-Date of Birth
-
-Gender
-
-Department
-
-Year of Study
-
-Contact Details
-
-8.2 Course Data
-
-Course ID (Primary Key)
-
-Course Name
-
-Credits
-
-Department
-
-8.3 Faculty Data
-
-Faculty ID (Primary Key)
-
-Name
-
-Department
-
-Designation
-
-8.4 Enrollment Data
-
-(Bridge entity between Student and Course)
-
-Enrollment ID (Primary Key)
-
-Student ID (Foreign Key)
-
-Course ID (Foreign Key)
-
-Semester
-
-8.5 Result Data
-
-Result ID (Primary Key)
-
-Enrollment ID (Foreign Key)
-
-Marks
-
-Grade
-
-Identified Entities
-
-Student
-
-Course
-
-Faculty
-
-Enrollment
-
-Result
-
-Identified Relationships
-
-A student can enroll in multiple courses
-
-A course can have multiple students enrolled
-
-The many-to-many relationship between Student and Course is resolved using the Enrollment entity
-
-A faculty member can teach multiple courses (1:N relationship)
-
-Each enrollment record is associated with exactly one result (1:1 relationship)
-
-Assumptions
-
-Each student is uniquely identified by Student ID
-
-Each course has a unique Course ID
-
-Each faculty member has a unique Faculty ID
-
-One faculty member teaches a course in a given semester
-
-A student may enroll in multiple courses in a semester
-
-Each enrollment produces one academic result
-
-Tools and Technologies
-
-Database: MySQL
-
-Query Language: SQL
-
-Frontend (Future Implementation): HTML, CSS, JavaScript
-
-Operating System: Windows
-
-Lab-wise Implementation Plan
-Lab No.	Description
-Lab 1	Requirement Gathering
-Lab 2	ER Diagram Design
-Lab 3	ER to Relational Mapping
-Lab 4	Normalization
-Lab 5	Stored Procedures
-Lab 6	SQL Queries
-Lab 7	User Interface
-Conclusion
-
-The Student Information System is designed using a structured Entity-Relationship model that accurately represents academic processes such as student enrollment, course management, faculty assignment, and result storage. The use of a bridge entity (Enrollment) efficiently resolves the many-to-many relationship between students and courses, while the Result entity ensures accurate academic performance tracking.
-
-This well-organized database design minimizes redundancy, maintains data integrity, and provides a scalable foundation for future enhancements. The project serves as a practical application of core DBMS concepts learned in the laboratory.
+**All accounts use password: `Password@123`**
+
+### 🔴 Administrator
+| Email | Password |
+|-------|----------|
+| admin@portal.edu | Password@123 |
+
+### 🔵 Faculty (Teachers)
+| Email | Name |
+|-------|------|
+| priya.sharma@portal.edu | Dr. Priya Sharma (CS) |
+| rajesh.kumar@portal.edu | Prof. Rajesh Kumar (CS) |
+| sunita.verma@portal.edu | Dr. Sunita Verma (Math) |
+| anil.gupta@portal.edu | Prof. Anil Gupta (Physics) |
+| meena.joshi@portal.edu | Dr. Meena Joshi (ECE) |
+| vikram.singh@portal.edu | Prof. Vikram Singh (CS) |
+
+### 🟢 Students
+| Email | Name | Department |
+|-------|------|------------|
+| amit.patel@student.edu | Amit Patel | CS Year 3 |
+| neha.singh@student.edu | Neha Singh | CS Year 2 |
+| rahul.sharma@student.edu | Rahul Sharma | CS Year 3 |
+| pooja.gupta@student.edu | Pooja Gupta | Math Year 2 |
+| arjun.mehta@student.edu | Arjun Mehta | CS Year 4 |
+| divya.rao@student.edu | Divya Rao | ECE Year 2 |
+| karan.jain@student.edu | Karan Jain | Physics Year 3 |
+| ananya.das@student.edu | Ananya Das | CS Year 2 |
+| rohit.yadav@student.edu | Rohit Yadav | Civil Year 4 |
+| priya.nair@student.edu | Priya Nair | ECE Year 3 |
+
+---
+
+## 🔌 API Endpoints Reference
+
+### Auth
+- `POST /api/auth/login` — Login with email + password
+- `GET  /api/auth/profile` — Get logged-in user info
+- `PUT  /api/auth/change-password` — Change own password
+
+### Admin (requires admin login)
+- `GET    /api/admin/dashboard` — Stats
+- `GET    /api/admin/students` — All students
+- `POST   /api/admin/students` — Create student
+- `PUT    /api/admin/students/:id` — Update student
+- `DELETE /api/admin/students/:id` — Delete student
+- `GET    /api/admin/faculty` — All faculty
+- `POST   /api/admin/faculty` — Create faculty
+- `GET    /api/admin/courses` — All courses
+- `POST   /api/admin/courses` — Create course
+- `GET    /api/admin/enrollments` — All enrollments
+- `POST   /api/admin/enrollments` — Enroll student
+- `GET    /api/admin/results` — All results
+- `PUT    /api/admin/results/:id` — Edit result
+- `GET    /api/admin/users` — All user accounts
+- `PUT    /api/admin/users/:id/reset-password` — Reset password
+
+### Student (requires student login)
+- `GET /api/student/profile` — Own profile
+- `GET /api/student/enrollments` — Own courses
+- `GET /api/student/results` — Own results
+- `GET /api/student/results/summary` — CGPA summary
+
+### Faculty/Teacher (requires faculty login)
+- `GET /api/faculty/profile` — Own profile
+- `GET /api/faculty/courses` — Assigned courses
+- `GET /api/faculty/courses/:id/students` — Students in a course
+- `GET /api/faculty/courses/:id/summary` — Grade distribution
+- `PUT /api/faculty/results/:id` — Update a student's result
+
+---
+
+## ❓ Troubleshooting
+
+### "Cannot connect to MySQL"
+- Make sure MySQL service is running
+- Check your `.env` file — is `DB_PASSWORD` correct?
+- Try connecting in MySQL Workbench first
+
+### "Port 3000 already in use"
+- Another app is using port 3000. Stop it, or React will ask if you want to use port 3001 — press Y.
+
+### "Port 5000 already in use"
+- Change `PORT=5001` in your `.env` file
+- Also update `frontend/src/utils/api.js` — change `http://localhost:5000` to `http://localhost:5001`
+
+### "npm install fails"
+- Make sure you have Node.js 16 or later: `node --version`
+- Try deleting `node_modules` folder and running `npm install` again
+
+### Page shows "Invalid token" / keeps redirecting to login
+- Clear your browser's localStorage: Open DevTools (F12) → Application → Local Storage → Clear all
+
+---
+
+## 🗃️ Database Schema Summary
+
+```
+users          → login credentials for everyone (email, password_hash, role)
+departments    → CS, Math, Physics, ECE, Civil
+students       → linked to users; has roll_number, year_of_study, dept
+faculty        → linked to users; has designation, dept
+courses        → has course_code, credits, semester, assigned faculty
+enrollments    → links student ↔ course (many-to-many)
+results        → one result per enrollment (marks_internal, marks_external, grade)
+```
+
+---
+
+## 🛠️ Tech Stack
+
+| Layer | Technology |
+|-------|-----------|
+| Frontend | React.js 18, React Router v6 |
+| HTTP Client | Axios |
+| Backend | Node.js, Express.js |
+| Database | MySQL |
+| Auth | JWT (JSON Web Tokens) + bcrypt |
+| Styling | Pure CSS with CSS Variables |
+
+---
