@@ -184,39 +184,6 @@ You will see the **Login Page** with demo accounts to click on.
 
 ---
 
-## 👥 Demo Login Accounts
-
-**All accounts use password: `Password@123`**
-
-### 🔴 Administrator
-| Email | Password |
-|-------|----------|
-| admin@portal.edu | Password@123 |
-
-### 🔵 Faculty (Teachers)
-| Email | Name |
-|-------|------|
-| priya.sharma@portal.edu | Dr. Priya Sharma (CS) |
-| rajesh.kumar@portal.edu | Prof. Rajesh Kumar (CS) |
-| sunita.verma@portal.edu | Dr. Sunita Verma (Math) |
-| anil.gupta@portal.edu | Prof. Anil Gupta (Physics) |
-| meena.joshi@portal.edu | Dr. Meena Joshi (ECE) |
-| vikram.singh@portal.edu | Prof. Vikram Singh (CS) |
-
-### 🟢 Students
-| Email | Name | Department |
-|-------|------|------------|
-| amit.patel@student.edu | Amit Patel | CS Year 3 |
-| neha.singh@student.edu | Neha Singh | CS Year 2 |
-| rahul.sharma@student.edu | Rahul Sharma | CS Year 3 |
-| pooja.gupta@student.edu | Pooja Gupta | Math Year 2 |
-| arjun.mehta@student.edu | Arjun Mehta | CS Year 4 |
-| divya.rao@student.edu | Divya Rao | ECE Year 2 |
-| karan.jain@student.edu | Karan Jain | Physics Year 3 |
-| ananya.das@student.edu | Ananya Das | CS Year 2 |
-| rohit.yadav@student.edu | Rohit Yadav | Civil Year 4 |
-| priya.nair@student.edu | Priya Nair | ECE Year 3 |
-
 ---
 
 ## 🔌 API Endpoints Reference
@@ -257,27 +224,6 @@ You will see the **Login Page** with demo accounts to click on.
 - `PUT /api/faculty/results/:id` — Update a student's result
 
 ---
-
-## ❓ Troubleshooting
-
-### "Cannot connect to MySQL"
-- Make sure MySQL service is running
-- Check your `.env` file — is `DB_PASSWORD` correct?
-- Try connecting in MySQL Workbench first
-
-### "Port 3000 already in use"
-- Another app is using port 3000. Stop it, or React will ask if you want to use port 3001 — press Y.
-
-### "Port 5000 already in use"
-- Change `PORT=5001` in your `.env` file
-- Also update `frontend/src/utils/api.js` — change `http://localhost:5000` to `http://localhost:5001`
-
-### "npm install fails"
-- Make sure you have Node.js 16 or later: `node --version`
-- Try deleting `node_modules` folder and running `npm install` again
-
-### Page shows "Invalid token" / keeps redirecting to login
-- Clear your browser's localStorage: Open DevTools (F12) → Application → Local Storage → Clear all
 
 ---
 
