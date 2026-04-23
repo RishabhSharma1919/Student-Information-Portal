@@ -9,8 +9,10 @@ require('dotenv').config();
 const app = express();
 
 //  MIDDLEWARE 
+const frontendUrl = (process.env.FRONTEND_URL || 'http://localhost:3000').replace(/['"]/g, '').trim();
+
 app.use(cors({
-  origin: process.env.FRONTEND_URL || 'http://localhost:3000',
+  origin: frontendUrl,
   credentials: true,
 }));
 app.use(express.json());
