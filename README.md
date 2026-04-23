@@ -1,5 +1,5 @@
 # 🎓 Student Information Portal
-### Developed by Rishabh Sharma | [Live API](https://student-information-portal-qbmr.onrender.com)
+### Developed by Rishabh Sharma | [Live API](https://student-information-portal-nu.vercel.app)
 
 ---
 
