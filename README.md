@@ -1,5 +1,5 @@
 # 🎓 Student Information Portal
-### A Full-Stack MERN + MySQL Project
+### Developed by Rishabh Sharma | [Live API](https://student-information-portal-qbmr.onrender.com)
 
 ---
 
@@ -19,9 +19,9 @@ This is a **Student Information Portal** with three different user views:
 
 ```
 student-portal/
-├── backend/           ← Node.js + Express + MySQL API
+├── backend/           ← Node.js + Express + Neon Postgres API
 │   ├── config/
-│   │   └── db.js               ← MySQL connection
+│   │   └── db.js               ← Database connection
 │   ├── controllers/
 │   │   ├── authController.js   ← Login, change password
 │   │   ├── adminController.js  ← All admin operations
@@ -34,7 +34,7 @@ student-portal/
 │   │   ├── admin.js
 │   │   ├── student.js
 │   │   └── faculty.js
-│   ├── schema.sql              ← ⭐ Run this in MySQL first!
+│   ├── postgres_schema.sql     ← ⭐ Run this in Neon/Postgres
 │   ├── server.js               ← Main backend entry point
 │   ├── .env.example            ← Copy to .env and fill in details
 │   └── package.json
