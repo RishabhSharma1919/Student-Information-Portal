@@ -262,3 +262,5 @@ This project is maintained and enhanced by:
 - **Rishabh Sharma** — Full-stack development, database optimization, and UI enhancements.
 
 ---
+
+DEPLOYED PROJECT LINK :-   https://student-information-portal-nu.vercel.app/
