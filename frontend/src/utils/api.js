@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const API = axios.create({
-  baseURL: process.env.REACT_APP_API_URL || 'https://student-information-portal-qbmr.onrender.com/api',
+  baseURL: 'https://student-information-portal-qbmr.onrender.com/api',
 });
 
 // Attach token to every request automatically
