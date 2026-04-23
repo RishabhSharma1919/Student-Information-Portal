@@ -11,6 +11,7 @@ const app = express();
 //  MIDDLEWARE 
 const allowedOrigins = [
   'http://localhost:3000',
+  'https://student-information-portal-nu.vercel.app',
   (process.env.FRONTEND_URL || '').replace(/['"]/g, '').trim()
 ].filter(Boolean);
 
