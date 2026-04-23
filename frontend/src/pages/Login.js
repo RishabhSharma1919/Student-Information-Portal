@@ -37,7 +37,7 @@ export default function Login() {
 
   const fillCreds = (cred) => {
     setEmail(cred.email);
-    setPassword('Password@123');
+    setPassword('password');
     setError('');
   };
 
