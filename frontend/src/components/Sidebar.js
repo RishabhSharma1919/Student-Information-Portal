@@ -51,6 +51,15 @@ export default function Sidebar({ items, activeSection, setActiveSection }) {
         <button className="nav-item" onClick={handleLogout} style={{color:'var(--red)'}}>
           <span className="icon">🚪</span> Sign Out
         </button>
+        <div style={{
+          textAlign: 'center', 
+          fontSize: '10px', 
+          color: 'var(--text3)', 
+          marginTop: '12px', 
+          opacity: 0.7
+        }}>
+          Developed by <b>Rishabh Sharma</b>
+        </div>
       </div>
     </div>
   );

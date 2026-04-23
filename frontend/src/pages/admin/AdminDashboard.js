@@ -7,6 +7,7 @@ import AdminCourses from './AdminCourses';
 import AdminEnrollments from './AdminEnrollments';
 import AdminResults from './AdminResults';
 import AdminUsers from './AdminUsers';
+import About from '../../components/About';
 
 const NAV_ITEMS = [
   { type: 'section', label: 'Overview' },
@@ -19,6 +20,7 @@ const NAV_ITEMS = [
   { key: 'results',     icon: '📝', label: 'Results' },
   { type: 'section', label: 'System' },
   { key: 'users',       icon: '👤', label: 'User Accounts' },
+  { key: 'about',       icon: 'ℹ️', label: 'About Project' },
 ];
 
 export default function AdminDashboard() {
@@ -33,6 +35,7 @@ export default function AdminDashboard() {
       case 'enrollments':  return <AdminEnrollments />;
       case 'results':      return <AdminResults />;
       case 'users':        return <AdminUsers />;
+      case 'about':        return <About />;
       default:             return <AdminOverview />;
     }
   };

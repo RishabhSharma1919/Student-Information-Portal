@@ -94,6 +94,17 @@ export default function Login() {
             </div>
           ))}
         </div>
+        <div style={{
+          textAlign: 'center', 
+          fontSize: '11px', 
+          color: 'var(--text3)', 
+          marginTop: '20px', 
+          borderTop: '1px solid var(--border)', 
+          paddingTop: '15px',
+          opacity: 0.8
+        }}>
+          Project Developed by <b>Rishabh Sharma</b>
+        </div>
       </div>
     </div>
   );

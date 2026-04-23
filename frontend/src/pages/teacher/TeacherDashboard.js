@@ -2,11 +2,14 @@ import React, { useState } from 'react';
 import Sidebar from '../../components/Sidebar';
 import TeacherProfile from './TeacherProfile';
 import TeacherCourses from './TeacherCourses';
+import About from '../../components/About';
 
 const NAV_ITEMS = [
   { type: 'section', label: 'My Panel' },
   { key: 'profile', icon: '👤', label: 'My Profile' },
   { key: 'courses', icon: '📚', label: 'My Courses & Results' },
+  { type: 'section', label: 'System' },
+  { key: 'about',   icon: 'ℹ️', label: 'About Project' },
 ];
 
 export default function TeacherDashboard() {
@@ -16,6 +19,7 @@ export default function TeacherDashboard() {
     switch (activeSection) {
       case 'profile': return <TeacherProfile />;
       case 'courses': return <TeacherCourses />;
+      case 'about':   return <About />;
       default:        return <TeacherCourses />;
     }
   };

@@ -3,12 +3,15 @@ import Sidebar from '../../components/Sidebar';
 import StudentProfile from './StudentProfile';
 import StudentCourses from './StudentCourses';
 import StudentResults from './StudentResults';
+import About from '../../components/About';
 
 const NAV_ITEMS = [
   { type: 'section', label: 'My Portal' },
   { key: 'profile',  icon: '👤', label: 'My Profile' },
   { key: 'courses',  icon: '📚', label: 'My Courses' },
   { key: 'results',  icon: '📝', label: 'My Results' },
+  { type: 'section', label: 'System' },
+  { key: 'about',    icon: 'ℹ️', label: 'About Project' },
 ];
 
 export default function StudentDashboard() {
@@ -19,6 +22,7 @@ export default function StudentDashboard() {
       case 'profile': return <StudentProfile />;
       case 'courses': return <StudentCourses />;
       case 'results': return <StudentResults />;
+      case 'about':   return <About />;
       default: return <StudentProfile />;
     }
   };

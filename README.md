@@ -253,3 +253,12 @@ results        → one result per enrollment (marks_internal, marks_external, gr
 | Styling | Pure CSS with CSS Variables |
 
 ---
+255: 
+---
+
+## 👥 Contributors
+
+This project is maintained and enhanced by:
+- **Rishabh Sharma** — Full-stack development, database optimization, and UI enhancements.
+
+---

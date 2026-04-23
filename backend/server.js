@@ -1,3 +1,7 @@
+/**
+ * @author Rishabh Sharma
+ * @description Student Information Portal Backend Entry Point
+ */
 const express = require('express');
 const cors = require('cors');
 require('dotenv').config();
@@ -20,7 +24,12 @@ app.use('/api/faculty', require('./routes/faculty'));
 
 //  HEALTH CHECK 
 app.get('/api/health', (req, res) => {
-  res.json({ status: 'OK', message: 'Student Portal API is running', timestamp: new Date() });
+  res.json({ 
+    status: 'OK', 
+    message: 'Student Portal API is running', 
+    developer: 'Rishabh Sharma',
+    timestamp: new Date() 
+  });
 });
 
 // 404 HANDLER
@@ -38,6 +47,7 @@ app.use((err, req, res, next) => {
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
   console.log(`\n🚀 Student Portal Backend running on http://localhost:${PORT}`);
+  console.log(`👤 Developer: Rishabh Sharma`);
   console.log(`📋 API Endpoints:`);
   console.log(`   POST /api/auth/login`);
   console.log(`   GET  /api/admin/dashboard`);
