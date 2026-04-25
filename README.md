@@ -69,15 +69,16 @@ Before starting, you need these installed on your computer:
 - Download and install the **LTS version** (the green button)
 - To verify: open a terminal/command prompt and type: `node --version`
 
-### 2. MySQL (The database)
-- **Windows**: Download MySQL Installer from https://dev.mysql.com/downloads/installer/
-  - During install, choose "Developer Default"
-  - Set a **root password** — remember this! You'll need it later.
-- **Mac**: Install via Homebrew: `brew install mysql`
-- **To verify**: Open MySQL Workbench or type `mysql -u root -p` in terminal
+### 2. PostgreSQL (The database)
+- **Option A: Neon Postgres (Recommended)**
+  - Go to https://neon.tech and create a free account.
+  - Create a new project and copy your **Connection String**.
+- **Option B: Local PostgreSQL**
+  - Download from: https://www.postgresql.org/download/
+  - Set a password and remember it!
 
-### 3. MySQL Workbench (Optional but recommended — visual tool for MySQL)
-- Download from: https://dev.mysql.com/downloads/workbench/
+### 3. pgAdmin (Optional — visual tool for PostgreSQL)
+- Download from: https://www.pgadmin.org/download/
 
 ---
 
@@ -85,35 +86,25 @@ Before starting, you need these installed on your computer:
 
 ### STEP 1: Set Up the Database
 
-1. Open **MySQL Workbench** (or your terminal)
-2. Connect to MySQL with your root credentials
-3. Open the file `backend/schema.sql` from this project
-4. Run the entire file — it will:
-   - Create a database called `student_portal`
+1. Open your **PostgreSQL tool** (Neon SQL Editor, pgAdmin, or psql)
+2. Open the file `backend/postgres_schema.sql` from this project
+3. Run the entire file — it will:
    - Create all the tables (students, faculty, courses, etc.)
    - Insert sample data (10 students, 6 faculty, 10 courses)
 
-**Using terminal instead:**
-```bash
-mysql -u root -p < backend/schema.sql
-```
-(It will ask for your MySQL password)
+**Note:** If using Neon, you can just paste the contents of `backend/postgres_schema.sql` into the SQL Editor and click **Run**.
 
 ---
 
 ### STEP 2: Configure the Backend
 
 1. Go into the `backend` folder
-2. Copy `.env.example` and rename the copy to `.env`
+2. Copy `.env.example` and rename the copy to `.env` (or update existing `.env`)
 3. Open `.env` and fill in your details:
 
 ```env
-DB_HOST=localhost
-DB_PORT=3306
-DB_USER=root
-DB_PASSWORD=your_mysql_root_password_here   ← CHANGE THIS
-DB_NAME=student_portal
-JWT_SECRET=any_long_random_string_here      ← CHANGE THIS (e.g. mySecretKey123456789)
+DATABASE_URL=your_postgresql_connection_string_here
+JWT_SECRET=any_long_random_string_here      ← CHANGE THIS
 PORT=5000
 FRONTEND_URL=http://localhost:3000
 ```
@@ -137,7 +128,7 @@ npm run dev
 
 You should see:
 ```
-✅ MySQL Connected Successfully!
+✅ Neon Postgres Connected Successfully!
 🚀 Student Portal Backend running on http://localhost:5000
 ```
 
@@ -248,7 +239,7 @@ results        → one result per enrollment (marks_internal, marks_external, gr
 | Frontend | React.js 18, React Router v6 |
 | HTTP Client | Axios |
 | Backend | Node.js, Express.js |
-| Database | MySQL |
+| Database | PostgreSQL (Neon) |
 | Auth | JWT (JSON Web Tokens) + bcrypt |
 | Styling | Pure CSS with CSS Variables |
 
