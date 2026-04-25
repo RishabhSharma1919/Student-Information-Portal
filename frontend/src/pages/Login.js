@@ -103,7 +103,7 @@ export default function Login() {
           paddingTop: '15px',
           opacity: 0.8
         }}>
-          Project Developed by <b>Rishabh Sharma</b>
+
         </div>
       </div>
     </div>

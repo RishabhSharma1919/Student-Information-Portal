@@ -1,5 +1,5 @@
 # 🎓 Student Information Portal
-### Developed by Rishabh Sharma | [Live API](https://student-information-portal-nu.vercel.app)
+### [Live API](https://student-information-portal-nu.vercel.app)
 
 ---
 
@@ -256,10 +256,7 @@ results        → one result per enrollment (marks_internal, marks_external, gr
 255: 
 ---
 
-## 👥 Contributors
 
-This project is maintained and enhanced by:
-- **Rishabh Sharma** — Full-stack development, database optimization, and UI enhancements.
 
 ---
 

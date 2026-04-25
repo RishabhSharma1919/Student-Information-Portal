@@ -1,7 +1,7 @@
 {
   "name": "student-portal-frontend",
   "version": "1.0.0",
-  "author": "Rishabh Sharma",
+
   "private": true,
   "dependencies": {
     "react": "^18.2.0",

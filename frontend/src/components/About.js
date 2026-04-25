@@ -44,7 +44,7 @@ export default function About() {
             RS
           </div>
           <div>
-            <h4 style={{ margin: 0 }}>Rishabh Sharma</h4>
+
             <p style={{ margin: 0, fontSize: '13px', color: 'var(--text3)' }}>Lead Contributor & Full-Stack Developer</p>
           </div>
         </div>

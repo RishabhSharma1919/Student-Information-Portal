@@ -58,7 +58,7 @@ export default function Sidebar({ items, activeSection, setActiveSection }) {
           marginTop: '12px', 
           opacity: 0.7
         }}>
-          Developed by <b>Rishabh Sharma</b>
+
         </div>
       </div>
     </div>

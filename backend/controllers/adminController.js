@@ -1,5 +1,5 @@
 /**
- * @author Rishabh Sharma
+
  * @description Admin Controller for managing portal data
  */
 const db = require('../config/db');

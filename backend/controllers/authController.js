@@ -1,5 +1,5 @@
 /**
- * @author Rishabh Sharma
+
  * @description Authentication Controller
  */
 const db = require('../config/db');

@@ -1,5 +1,5 @@
 /**
- * @author Rishabh Sharma
+
  * @description Faculty Controller
  */
 const db = require('../config/db');
